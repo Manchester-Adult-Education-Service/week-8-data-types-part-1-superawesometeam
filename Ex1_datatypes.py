@@ -34,6 +34,8 @@
 
 
 # Task 1: Recording a Found Item
+#DomatWheel
+
 # -------------------------------------------
 print("-------------------------------------------\n"
     + "Task 1: Recording a Found Item\n"
@@ -61,7 +63,14 @@ print("-------------------------------------------\n"
 # my_dict = {"key1": value1, "key2": value2, "key3": value3}
 
 
+found_item = {
+  
+ }
+found_item["name"] = input("Please enter the type of item found: ")
+found_item["colour"] = input("Please enter the colour of the item found: ")
+found_item["location"] = input("Please enter the location where the item was found: ")
 
+print(found_item)
 # -------------------------------------------
 # SWAP COMPUTERS
 # -------------------------------------------
@@ -73,6 +82,8 @@ print("-------------------------------------------\n"
 
 
 # Task 2: Multiple Found Items
+
+
 # -------------------------------------------
 print("-------------------------------------------\n"
     + "Task 2: Multiple Found Items\n"
