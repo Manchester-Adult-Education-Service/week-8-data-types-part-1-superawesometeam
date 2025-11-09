@@ -71,6 +71,7 @@ found_item["colour"] = input("Please enter the colour of the item found: ")
 found_item["location"] = input("Please enter the location where the item was found: ")
 
 print(found_item)
+
 # -------------------------------------------
 # SWAP COMPUTERS
 # -------------------------------------------
