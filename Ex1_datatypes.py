@@ -63,13 +63,10 @@ print("-------------------------------------------\n"
 # my_dict = {"key1": value1, "key2": value2, "key3": value3}
 
 
-found_item = {
-  
- }
-found_item["name"] = input("Please enter the type of item found: ")
-found_item["colour"] = input("Please enter the colour of the item found: ")
-found_item["location"] = input("Please enter the location where the item was found: ")
-
+found_item = { }
+found_item["Name"] = input("Please enter the type of item found: ")
+found_item["Colour"] = input("Please enter the colour of the item found: ")
+found_item["Location"] = input("Please enter the location where the item was found: ")
 print(found_item)
 
 # -------------------------------------------
@@ -112,9 +109,24 @@ print("-------------------------------------------\n"
 
 # HINT: To access dictionary values, use: dictionary_name["key_name"]
 # Example: found_item["name"] gets the name value
-
-
-
+count = 0
+found_items = []
+found_items .append(found_item)
+count = (count +1)
+add_property = input("Do you wish to add a new item: yes/no ".lower())
+if add_property == "yes":
+    new_item = {}
+    new_item ["Name"] = input("Item name: ".lower())
+    new_item ["Colour"] = input("Item colour: ".lower())
+    new_item ["Location"] = input("Location found: ".lower())
+    found_items .append(new_item)
+    count = (count +1)
+    print(f"Total items recorded: {count}")
+    for item in found_items:
+        print(f"Item 1: {item["Name"].lower()} ({item["Colour"].lower()}) found at {item["Location"].lower()}")
+        print(f"Item 2: {new_item ["Name"].lower()} ({new_item["Colour"].lower()}) found at {new_item["Location"].lower()}")
+        break
+print()
 # -------------------------------------------
 # SWAP COMPUTERS
 # -------------------------------------------
@@ -164,8 +176,23 @@ print("-------------------------------------------\n"
 # HINT: When looping through a list of dictionaries:
 # for item in found_items:
 #     print(item["name"])  # Access the name from each dictionary
-
-
+record = 0
+print("==== FOUND ITEMS RECORDS ====")
+print()
+for item in found_items:
+    if item["Name"] == "":
+        print("No items recorded yet!")
+        break
+for item in (found_items):
+    record = record + 1
+    print(f"Record {record}:")
+    print(f"Name: {item["Name"]}")
+    print(f"Colour: {item["Colour"]}")
+    print(f"Location: {item["Location"]}")
+    print()     
+print()
+print(f"Total items: {count}")
+# There is one problem with this code - line 197 is repeated twice. 
 
 # -------------------------------------------
 # SWAP COMPUTERS
@@ -204,9 +231,15 @@ print("-------------------------------------------\n"
 # HINT: Use item["name"].lower() == search_term.lower()
 #
 # Write your code below:
-
-
-
+found = False
+search_term = input("Enter item name to search for: ")
+for item in found_items:
+    if item["Name"] == search_term:
+        print(f"Found: {item["Name"]} ({item["Colour"]}) - found at: {item["Location"]}")
+        found = True
+        break
+if not found:
+    print("No items found with that name.")
 
 # -------------------------------------------
 # SWAP COMPUTERS
