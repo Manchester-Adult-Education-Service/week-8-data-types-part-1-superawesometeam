@@ -280,9 +280,31 @@ print("-------------------------------------------\n"
 # Total items: 3
 #
 # Write your code below:
-
-
-
+count = 0
+count = 2
+invalid_entry = "Error: All fields must be filled in!"
+add_property2 = input("Do you wish to add a new item: yes/no ")
+if add_property2 == "yes":
+    new_item2 = {}
+    new_item2 ["Name"] = input("Item name: ".lower())
+    if new_item2["Name"] is "":
+        print(invalid_entry)
+        new_item2 ["Name"] = input("Item name: ".lower())
+    new_item2 ["Colour"] = input("Item colour: ".lower())
+    if new_item2["Colour"] is "":
+        print(invalid_entry)
+        new_item2 ["Colour"] = input("Item colour: ".lower())
+    new_item2 ["Location"] = input("Location found: ".lower())
+    if new_item2["Location"] is "":
+        print(invalid_entry)
+        new_item2 ["Location"] = input("Location found: ".lower())
+    else: 
+        found_items .append(new_item2)
+    print()
+    print("Item added successfully!")
+    print()
+    count = (count +1)
+    print(f"Total items recorded: {count}")
 
 # -------------------------------------------
 # SWAP COMPUTERS
