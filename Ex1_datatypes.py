@@ -78,9 +78,7 @@ print(found_item)
 # Next learner: git pull origin main
 # -------------------------------------------
 
-
 # Task 2: Multiple Found Items
-
 
 # -------------------------------------------
 print("-------------------------------------------\n"
@@ -109,24 +107,46 @@ print("-------------------------------------------\n"
 
 # HINT: To access dictionary values, use: dictionary_name["key_name"]
 # Example: found_item["name"] gets the name value
+
+# Darrens code -
+
+# NOTE - No matter how hard you try you cannot append a dictionary to a dictionary!! In future try reading the instructions more carefully!!
+
+print()
+rec = 0
 count = 0
 found_items = []
 found_items .append(found_item)
-count = (count +1)
-add_property = input("Do you wish to add a new item: yes/no ".lower())
+count = count + 1
+add_property = input("Do you wish to add a new item: yes/no ")
 if add_property == "yes":
     new_item = {}
-    new_item ["Name"] = input("Item name: ".lower())
-    new_item ["Colour"] = input("Item colour: ".lower())
-    new_item ["Location"] = input("Location found: ".lower())
+    new_item ["Name"] = input("Item name: ")
+    new_item ["Colour"] = input("Item colour: ")
+    new_item ["Location"] = input("Location found: ")
     found_items .append(new_item)
-    count = (count +1)
+    count = count + 1
+    print()
     print(f"Total items recorded: {count}")
     for item in found_items:
-        print(f"Item 1: {item["Name"].lower()} ({item["Colour"].lower()}) found at {item["Location"].lower()}")
-        print(f"Item 2: {new_item ["Name"].lower()} ({new_item["Colour"].lower()}) found at {new_item["Location"].lower()}")
-        break
-print()
+        rec = (rec +1)
+        print()
+        print(f"Item {rec}: {item["Name"]} ({item["Colour"]}) found at {item["Location"]}")
+else:
+    print("Are you sure you don't want to add another item? Really, really, really sure?")
+    add_property = input("Do you wish to add a new item: yes/no ")
+    new_item = {}
+    new_item ["Name"] = input("Item name: ")
+    new_item ["Colour"] = input("Item colour: ")
+    new_item ["Location"] = input("Location found: ")
+    found_items .append(new_item)
+    count = count + 1
+    print()
+    print(f"Total items recorded: {count}")
+    for item in found_items:
+        rec = (rec +1)
+        print()
+        print(f"Item {rec}: {item["Name"]} ({item["Colour"]}) found at {item["Location"]}")
 # -------------------------------------------
 # SWAP COMPUTERS
 # -------------------------------------------
@@ -135,7 +155,6 @@ print()
 # git push origin main
 # Next learner: git pull origin main
 # -------------------------------------------
-
 
 # Task 3: Viewing All Records
 # -------------------------------------------
@@ -176,6 +195,10 @@ print("-------------------------------------------\n"
 # HINT: When looping through a list of dictionaries:
 # for item in found_items:
 #     print(item["name"])  # Access the name from each dictionary
+
+# Darrens code
+
+print()
 record = 0
 print("==== FOUND ITEMS RECORDS ====")
 print()
@@ -184,15 +207,17 @@ for item in found_items:
         print("No items recorded yet!")
         break
 for item in (found_items):
-    record = record + 1
+    record = (record + 1)
     print(f"Record {record}:")
     print(f"Name: {item["Name"]}")
     print(f"Colour: {item["Colour"]}")
-    print(f"Location: {item["Location"]}")
-    print()     
-print()
+    print(f"Location: {item["Location"]}")     
+    print()
 print(f"Total items: {count}")
-# There is one problem with this code - line 197 is repeated twice. 
+print()
+
+# NOTE - You don't need to insert a break in the print For loop as it will just loop until its completed the cycle.
+# BUT you do need put the 'counter' variable first not last!!
 
 # -------------------------------------------
 # SWAP COMPUTERS
@@ -202,7 +227,6 @@ print(f"Total items: {count}")
 # git push origin main
 # Next learner: git pull origin main
 # -------------------------------------------
-
 
 # -------------------------------------------
 # EXTENSION ACTIVITIES
@@ -231,15 +255,22 @@ print("-------------------------------------------\n"
 # HINT: Use item["name"].lower() == search_term.lower()
 #
 # Write your code below:
+
+# Darrens code -
+
+print()
 found = False
 search_term = input("Enter item name to search for: ")
 for item in found_items:
-    if item["Name"] == search_term:
+    if item["Name"].lower() == search_term.lower():
         print(f"Found: {item["Name"]} ({item["Colour"]}) - found at: {item["Location"]}")
         found = True
         break
 if not found:
     print("No items found with that name.")
+print()
+
+# NOTE - Is the reason for the found variable being set to False so we can use the if not statement?
 
 # -------------------------------------------
 # SWAP COMPUTERS
@@ -280,22 +311,24 @@ print("-------------------------------------------\n"
 # Total items: 3
 #
 # Write your code below:
-count = 0
+
+# Darrens code - 
+
 count = 2
 invalid_entry = "Error: All fields must be filled in!"
 add_property2 = input("Do you wish to add a new item: yes/no ")
 if add_property2 == "yes":
     new_item2 = {}
     new_item2 ["Name"] = input("Item name: ".lower())
-    if new_item2["Name"] is "":
+    if new_item2["Name"] == "":
         print(invalid_entry)
         new_item2 ["Name"] = input("Item name: ".lower())
     new_item2 ["Colour"] = input("Item colour: ".lower())
-    if new_item2["Colour"] is "":
+    if new_item2["Colour"] == "":
         print(invalid_entry)
         new_item2 ["Colour"] = input("Item colour: ".lower())
     new_item2 ["Location"] = input("Location found: ".lower())
-    if new_item2["Location"] is "":
+    if new_item2["Location"] == "":
         print(invalid_entry)
         new_item2 ["Location"] = input("Location found: ".lower())
     else: 
@@ -305,6 +338,8 @@ if add_property2 == "yes":
     print()
     count = (count +1)
     print(f"Total items recorded: {count}")
+
+# NOTE - When using an if statement for validation dont forget to add the input line again!
 
 # -------------------------------------------
 # SWAP COMPUTERS
@@ -341,8 +376,30 @@ print("-------------------------------------------\n"
 #
 # Write your code below:
 
+# Darrens code - 
 
+next_id = 1
+for item in found_items:
+    item["id"] = next_id
+    next_id = (next_id +1)
+for item in found_items:
+    print(f"ID: {item["id"]} | Name: {item["Name"]} | Colour: {item["Colour"]} | Location: {item["Location"]}")
 
+# NOTE - notice the use of the For statement to automate adding new key to all existing dicts. Useful!
+
+# Extension 1 Updated: Search by Item Name
+print()
+print("==== Searching for items updated ====")
+print()   
+found = False
+search_term = input("Enter item name to search for: ")
+for item in found_items:
+    if item["Name"].lower() == search_term.lower():
+        print(f"Found: ID: {item["id"]} {item["Name"]} ({item["Colour"]}) - found at: {item["Location"]}")
+        found = True
+        break
+if not found:
+    print("No items found with that name.")
 
 # -------------------------------------------
 # Submitting Your Work
